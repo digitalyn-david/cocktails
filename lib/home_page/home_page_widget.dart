@@ -3,6 +3,7 @@ import '../cocktail_page/cocktail_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../search_results_page/search_results_page_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -224,7 +225,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: SpinKitChasingDots(
+                                            child: SpinKitFadingFour(
                                               color: FlutterFlowTheme
                                                   .tertiaryColor,
                                               size: 50,
@@ -256,8 +257,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(15),
                                           ),
-                                          child: Image.network(
-                                            getJsonField(
+                                          child: CachedNetworkImage(
+                                            imageUrl: getJsonField(
                                                 cardGetDrinkByIdResponse,
                                                 r'''$.drinks[:1].strDrinkThumb'''),
                                             width: 100,
@@ -283,7 +284,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: SpinKitChasingDots(
+                                            child: SpinKitFadingFour(
                                               color: FlutterFlowTheme
                                                   .tertiaryColor,
                                               size: 50,
@@ -342,7 +343,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: SpinKitChasingDots(
+                                            child: SpinKitFadingFour(
                                               color: FlutterFlowTheme
                                                   .tertiaryColor,
                                               size: 50,
@@ -401,7 +402,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: SpinKitChasingDots(
+                                            child: SpinKitFadingFour(
                                               color: FlutterFlowTheme
                                                   .tertiaryColor,
                                               size: 50,
@@ -460,7 +461,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: SpinKitChasingDots(
+                                            child: SpinKitFadingFour(
                                               color: FlutterFlowTheme
                                                   .tertiaryColor,
                                               size: 50,
@@ -519,7 +520,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: SpinKitChasingDots(
+                                            child: SpinKitFadingFour(
                                               color: FlutterFlowTheme
                                                   .tertiaryColor,
                                               size: 50,
