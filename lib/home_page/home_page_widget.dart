@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../search_results_page/search_results_page_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePageWidget extends StatefulWidget {
@@ -223,67 +224,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: CircularProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.primaryColor,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      final cardGetDrinkByIdResponse =
-                                          snapshot.data;
-                                      return InkWell(
-                                        onTap: () async {
-                                          await Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  CocktailPageWidget(
-                                                artPiece:
-                                                    cardGetDrinkByIdResponse,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Colors.white,
-                                          elevation: 6,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                          ),
-                                          child: Image.network(
-                                            getJsonField(
-                                                cardGetDrinkByIdResponse,
-                                                r'''$.drinks[:1].strDrinkThumb'''),
-                                            width: 100,
-                                            height: 100,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 5, 5, 5),
-                                  child: FutureBuilder<dynamic>(
-                                    future: getDrinkByIdCall(
-                                      i: '11007',
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50,
-                                            height: 50,
-                                            child: CircularProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.primaryColor,
+                                            child: SpinKitChasingDots(
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
+                                              size: 50,
                                             ),
                                           ),
                                         );
@@ -339,9 +283,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: CircularProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.primaryColor,
+                                            child: SpinKitChasingDots(
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
+                                              size: 50,
                                             ),
                                           ),
                                         );
@@ -397,9 +342,69 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: CircularProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.primaryColor,
+                                            child: SpinKitChasingDots(
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
+                                              size: 50,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      final cardGetDrinkByIdResponse =
+                                          snapshot.data;
+                                      return InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CocktailPageWidget(
+                                                artPiece:
+                                                    cardGetDrinkByIdResponse,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Colors.white,
+                                          elevation: 6,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Image.network(
+                                            getJsonField(
+                                                cardGetDrinkByIdResponse,
+                                                r'''$.drinks[:1].strDrinkThumb'''),
+                                            width: 100,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 5),
+                                  child: FutureBuilder<dynamic>(
+                                    future: getDrinkByIdCall(
+                                      i: '11007',
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: SpinKitChasingDots(
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
+                                              size: 50,
                                             ),
                                           ),
                                         );
@@ -455,9 +460,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: CircularProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.primaryColor,
+                                            child: SpinKitChasingDots(
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
+                                              size: 50,
                                             ),
                                           ),
                                         );
@@ -513,9 +519,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           child: SizedBox(
                                             width: 50,
                                             height: 50,
-                                            child: CircularProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.primaryColor,
+                                            child: SpinKitChasingDots(
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
+                                              size: 50,
                                             ),
                                           ),
                                         );

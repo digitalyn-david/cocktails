@@ -3,6 +3,7 @@ import '../cocktail_page/cocktail_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchResultsPageWidget extends StatefulWidget {
@@ -41,8 +42,9 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
             child: SizedBox(
               width: 50,
               height: 50,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.primaryColor,
+              child: SpinKitChasingDots(
+                color: FlutterFlowTheme.tertiaryColor,
+                size: 50,
               ),
             ),
           );
@@ -224,8 +226,9 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                                   child: SizedBox(
                                     width: 50,
                                     height: 50,
-                                    child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.primaryColor,
+                                    child: SpinKitChasingDots(
+                                      color: FlutterFlowTheme.tertiaryColor,
+                                      size: 50,
                                     ),
                                   ),
                                 );

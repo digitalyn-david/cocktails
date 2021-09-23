@@ -1,6 +1,7 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CocktailPageWidget extends StatefulWidget {
@@ -168,14 +169,6 @@ class _CocktailPageWidgetState extends State<CocktailPageWidget> {
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Text(
-                                            '- ',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Playfair Display',
-                                              color: Color(0xFF6A7079),
-                                            ),
-                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -269,7 +262,7 @@ class _CocktailPageWidgetState extends State<CocktailPageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(30, 30, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(30, 40, 0, 0),
                         child: InkWell(
                           onTap: () async {
                             Navigator.pop(context);
