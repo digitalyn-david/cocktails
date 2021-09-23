@@ -207,6 +207,7 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                         final searchResultsItem =
                             searchResults[searchResultsIndex];
                         return Container(
+                          width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(0),
                           ),
@@ -243,6 +244,7 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                                   );
                                 },
                                 child: Container(
+                                  width: MediaQuery.of(context).size.width,
                                   decoration: BoxDecoration(),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -323,41 +325,34 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            Visibility(
-                                                              visible: getJsonField(
-                                                                      searchResultsItem,
-                                                                      r'''$.strIBA''') ??
-                                                                  true,
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            6,
-                                                                            0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    getJsonField(
-                                                                            searchResultsItem,
-                                                                            r'''$.strIBA''')
-                                                                        .toString(),
-                                                                    'A classic',
-                                                                  ),
-                                                                  style: FlutterFlowTheme
-                                                                      .bodyText2
-                                                                      .override(
-                                                                    fontFamily:
-                                                                        'Roboto',
-                                                                    color: FlutterFlowTheme
-                                                                        .tertiaryColor,
-                                                                    fontSize:
-                                                                        14,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          0,
+                                                                          6,
+                                                                          0),
+                                                              child: Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  getJsonField(
+                                                                          searchResultsItem,
+                                                                          r'''$.strIBA''')
+                                                                      .toString(),
+                                                                  'A classic',
+                                                                ),
+                                                                style: FlutterFlowTheme
+                                                                    .bodyText2
+                                                                    .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme
+                                                                      .tertiaryColor,
+                                                                  fontSize: 14,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
                                                                 ),
                                                               ),
                                                             )

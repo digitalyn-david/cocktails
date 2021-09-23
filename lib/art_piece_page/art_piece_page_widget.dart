@@ -80,26 +80,21 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Visibility(
-                                          visible: getJsonField(widget.artPiece,
-                                                  r'''$.drinks[:1].strIBA''') ??
-                                              true,
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 6, 0),
-                                            child: Text(
-                                              getJsonField(widget.artPiece,
-                                                      r'''$.drinks[:1].strIBA''')
-                                                  .toString(),
-                                              style: FlutterFlowTheme.bodyText2
-                                                  .override(
-                                                fontFamily: 'Roboto',
-                                                color: FlutterFlowTheme
-                                                    .tertiaryColor,
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 0, 6, 0),
+                                          child: Text(
+                                            getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIBA''')
+                                                .toString(),
+                                            style: FlutterFlowTheme.bodyText2
+                                                .override(
+                                              fontFamily: 'Roboto',
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.normal,
                                             ),
                                           ),
                                         )
@@ -198,203 +193,17 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient1''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient1''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient2''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient2''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient3''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient3''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient4''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient4''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient5''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient5''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient6''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient6''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient7''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient7''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient8''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient8''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient9''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient9''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Visibility(
-                                        visible: getJsonField(widget.artPiece,
-                                                r'''$.drinks[:1].strIngredient10''') ??
-                                            true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strIngredient10''')
-                                                .toString(),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 16,
-                                            ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 2, 0, 0),
+                                        child: Text(
+                                          getJsonField(widget.artPiece,
+                                                  r'''$.drinks[:1].strIngredient1''')
+                                              .toString(),
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Roboto',
+                                            fontSize: 16,
                                           ),
                                         ),
                                       )
