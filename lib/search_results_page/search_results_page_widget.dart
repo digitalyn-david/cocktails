@@ -2,6 +2,7 @@ import '../backend/api_requests/api_calls.dart';
 import '../cocktail_page/cocktail_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,7 +43,7 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
             child: SizedBox(
               width: 50,
               height: 50,
-              child: SpinKitChasingDots(
+              child: SpinKitFadingFour(
                 color: FlutterFlowTheme.tertiaryColor,
                 size: 50,
               ),
@@ -226,7 +227,7 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                                   child: SizedBox(
                                     width: 50,
                                     height: 50,
-                                    child: SpinKitChasingDots(
+                                    child: SpinKitFadingFour(
                                       color: FlutterFlowTheme.tertiaryColor,
                                       size: 50,
                                     ),
@@ -284,8 +285,9 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                                             ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(60),
-                                              child: Image.network(
-                                                getJsonField(searchResultsItem,
+                                              child: CachedNetworkImage(
+                                                imageUrl: getJsonField(
+                                                    searchResultsItem,
                                                     r'''$.strDrinkThumb'''),
                                                 width: 100,
                                                 height: 100,
