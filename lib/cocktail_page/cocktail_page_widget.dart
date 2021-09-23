@@ -3,8 +3,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ArtPiecePageWidget extends StatefulWidget {
-  ArtPiecePageWidget({
+class CocktailPageWidget extends StatefulWidget {
+  CocktailPageWidget({
     Key key,
     this.artPiece,
   }) : super(key: key);
@@ -12,17 +12,17 @@ class ArtPiecePageWidget extends StatefulWidget {
   final dynamic artPiece;
 
   @override
-  _ArtPiecePageWidgetState createState() => _ArtPiecePageWidgetState();
+  _CocktailPageWidgetState createState() => _CocktailPageWidgetState();
 }
 
-class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
+class _CocktailPageWidgetState extends State<CocktailPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.secondaryColor,
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -52,25 +52,44 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(40),
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(0),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(40),
+                                topRight: Radius.circular(40),
+                              ),
                               shape: BoxShape.rectangle,
                             ),
                             alignment:
                                 AlignmentDirectional(0, 0.050000000000000044),
                             child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                                  EdgeInsetsDirectional.fromSTEB(40, 10, 40, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        120, 0, 120, 40),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Divider(
+                                          height: 5,
+                                          thickness: 3,
+                                          color: Color(0xFFDDDDDD),
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                   Text(
                                     getJsonField(widget.artPiece,
                                             r'''$.drinks[:1].strDrink''')
                                         .toString(),
                                     style: FlutterFlowTheme.title1.override(
                                       fontFamily: 'Open Sans',
-                                      fontSize: 24,
+                                      fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -79,6 +98,8 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                                         0, 10, 0, 5),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
                                           padding:
@@ -91,10 +112,26 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                                             style: FlutterFlowTheme.bodyText2
                                                 .override(
                                               fontFamily: 'Roboto',
-                                              color: FlutterFlowTheme
-                                                  .tertiaryColor,
+                                              color: Color(0xFFB3B4B8),
                                               fontSize: 15,
                                               fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                          child: Text(
+                                            getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strAlcoholic''')
+                                                .toString(),
+                                            textAlign: TextAlign.end,
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Roboto',
+                                              color: Color(0xFFB3B4B8),
+                                              fontSize: 16,
                                             ),
                                           ),
                                         )
@@ -110,30 +147,6 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                                         height: 30,
                                         thickness: 0.5,
                                         color: FlutterFlowTheme.tertiaryColor,
-                                      ),
-                                      Text(
-                                        'Category',
-                                        style:
-                                            FlutterFlowTheme.bodyText2.override(
-                                          fontFamily: 'Open Sans',
-                                          color: Color(0xFF1E2429),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 2, 0, 0),
-                                        child: Text(
-                                          getJsonField(widget.artPiece,
-                                                  r'''$.drinks[:1].strCategory''')
-                                              .toString(),
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16,
-                                          ),
-                                        ),
                                       )
                                     ],
                                   ),
@@ -142,47 +155,6 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Divider(
-                                        height: 30,
-                                        thickness: 0.5,
-                                        color: FlutterFlowTheme.tertiaryColor,
-                                      ),
-                                      Text(
-                                        'Type',
-                                        style:
-                                            FlutterFlowTheme.bodyText2.override(
-                                          fontFamily: 'Open Sans',
-                                          color: Color(0xFF1E2429),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 2, 0, 0),
-                                        child: Text(
-                                          getJsonField(widget.artPiece,
-                                                  r'''$.drinks[:1].strAlcoholic''')
-                                              .toString(),
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Divider(
-                                        height: 30,
-                                        thickness: 0.5,
-                                        color: FlutterFlowTheme.tertiaryColor,
-                                      ),
                                       Text(
                                         'Ingredients',
                                         style:
@@ -203,6 +175,7 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Roboto',
+                                            color: Color(0xFF6A7079),
                                             fontSize: 16,
                                           ),
                                         ),
@@ -243,6 +216,7 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Roboto',
+                                              color: Color(0xFF6A7079),
                                               fontSize: 16,
                                             ),
                                           ),
@@ -257,15 +231,15 @@ class _ArtPiecePageWidgetState extends State<ArtPiecePageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 25, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(30, 30, 0, 0),
                         child: InkWell(
                           onTap: () async {
                             Navigator.pop(context);
                           },
                           child: Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.black,
-                            size: 40,
+                            Icons.arrow_back,
+                            color: Color(0xFFE1E1E1),
+                            size: 30,
                           ),
                         ),
                       )

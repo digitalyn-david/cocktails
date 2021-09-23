@@ -1,5 +1,5 @@
-import '../art_piece_page/art_piece_page_widget.dart';
 import '../backend/api_requests/api_calls.dart';
+import '../cocktail_page/cocktail_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -237,7 +237,7 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                                   await Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => ArtPiecePageWidget(
+                                      builder: (context) => CocktailPageWidget(
                                         artPiece: containerGetDrinkByIdResponse,
                                       ),
                                     ),
@@ -255,7 +255,7 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                ArtPiecePageWidget(
+                                                CocktailPageWidget(
                                               artPiece:
                                                   containerGetDrinkByIdResponse,
                                             ),

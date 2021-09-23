@@ -1,5 +1,5 @@
-import '../art_piece_page/art_piece_page_widget.dart';
 import '../backend/api_requests/api_calls.dart';
+import '../cocktail_page/cocktail_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../search_results_page/search_results_page_widget.dart';
@@ -38,22 +38,26 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   Align(
                     alignment: AlignmentDirectional(-3.6, -23.02),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
-                            'Welcome to this new cocktail list',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Roboto',
-                              color: Color(0xFF090F13),
-                              fontSize: 26,
-                              fontWeight: FontWeight.bold,
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                            child: Text(
+                              'Welcome to this new cocktail list',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Roboto',
+                                color: Color(0xFF090F13),
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                             child: Container(
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
@@ -73,7 +77,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(10, 25, 10, 0),
                             child: Container(
                               width: double.infinity,
                               height: 52,
@@ -171,7 +175,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(10, 25, 10, 0),
                             child: Container(
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
@@ -197,325 +201,361 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 0,
+                                mainAxisSpacing: 0,
                                 childAspectRatio: 0.7,
                               ),
                               primary: false,
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
                               children: [
-                                FutureBuilder<dynamic>(
-                                  future: getRandomCocktailCall(),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: CircularProgressIndicator(
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    final cardGetRandomCocktailResponse =
-                                        snapshot.data;
-                                    return InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                ArtPiecePageWidget(
-                                              artPiece:
-                                                  cardGetRandomCocktailResponse,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 5),
+                                  child: FutureBuilder<dynamic>(
+                                    future: getDrinkByIdCall(
+                                      i: '11000',
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                             ),
                                           ),
                                         );
-                                      },
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: Colors.white,
-                                        elevation: 6,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
+                                      }
+                                      final cardGetDrinkByIdResponse =
+                                          snapshot.data;
+                                      return InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CocktailPageWidget(
+                                                artPiece:
+                                                    cardGetDrinkByIdResponse,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Colors.white,
+                                          elevation: 6,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Image.network(
+                                            getJsonField(
+                                                cardGetDrinkByIdResponse,
+                                                r'''$.drinks[:1].strDrinkThumb'''),
+                                            width: 100,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                        child: Image.network(
-                                          getJsonField(
-                                              cardGetRandomCocktailResponse,
-                                              r'''$.drinks[:1].strDrinkThumb'''),
-                                          width: 100,
-                                          height: 100,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
+                                  ),
                                 ),
-                                FutureBuilder<dynamic>(
-                                  future: getRandomCocktailCall(),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: CircularProgressIndicator(
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    final cardGetRandomCocktailResponse =
-                                        snapshot.data;
-                                    return InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                ArtPiecePageWidget(
-                                              artPiece:
-                                                  cardGetRandomCocktailResponse,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 5),
+                                  child: FutureBuilder<dynamic>(
+                                    future: getDrinkByIdCall(
+                                      i: '11001',
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                             ),
                                           ),
                                         );
-                                      },
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: Colors.white,
-                                        elevation: 6,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
+                                      }
+                                      final cardGetDrinkByIdResponse =
+                                          snapshot.data;
+                                      return InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CocktailPageWidget(
+                                                artPiece:
+                                                    cardGetDrinkByIdResponse,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Colors.white,
+                                          elevation: 6,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Image.network(
+                                            getJsonField(
+                                                cardGetDrinkByIdResponse,
+                                                r'''$.drinks[:1].strDrinkThumb'''),
+                                            width: 100,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                        child: Image.network(
-                                          getJsonField(
-                                              cardGetRandomCocktailResponse,
-                                              r'''$.drinks[:1].strDrinkThumb'''),
-                                          width: 100,
-                                          height: 100,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
+                                  ),
                                 ),
-                                FutureBuilder<dynamic>(
-                                  future: getRandomCocktailCall(),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: CircularProgressIndicator(
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    final cardGetRandomCocktailResponse =
-                                        snapshot.data;
-                                    return InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                ArtPiecePageWidget(
-                                              artPiece:
-                                                  cardGetRandomCocktailResponse,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 5),
+                                  child: FutureBuilder<dynamic>(
+                                    future: getDrinkByIdCall(
+                                      i: '11005',
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                             ),
                                           ),
                                         );
-                                      },
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: Colors.white,
-                                        elevation: 6,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
+                                      }
+                                      final cardGetDrinkByIdResponse =
+                                          snapshot.data;
+                                      return InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CocktailPageWidget(
+                                                artPiece:
+                                                    cardGetDrinkByIdResponse,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Colors.white,
+                                          elevation: 6,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Image.network(
+                                            getJsonField(
+                                                cardGetDrinkByIdResponse,
+                                                r'''$.drinks[:1].strDrinkThumb'''),
+                                            width: 100,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                        child: Image.network(
-                                          getJsonField(
-                                              cardGetRandomCocktailResponse,
-                                              r'''$.drinks[:1].strDrinkThumb'''),
-                                          width: 100,
-                                          height: 100,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
+                                  ),
                                 ),
-                                FutureBuilder<dynamic>(
-                                  future: getRandomCocktailCall(),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: CircularProgressIndicator(
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    final cardGetRandomCocktailResponse =
-                                        snapshot.data;
-                                    return InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                ArtPiecePageWidget(
-                                              artPiece:
-                                                  cardGetRandomCocktailResponse,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 5),
+                                  child: FutureBuilder<dynamic>(
+                                    future: getDrinkByIdCall(
+                                      i: '11006',
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                             ),
                                           ),
                                         );
-                                      },
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: Colors.white,
-                                        elevation: 6,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
+                                      }
+                                      final cardGetDrinkByIdResponse =
+                                          snapshot.data;
+                                      return InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CocktailPageWidget(
+                                                artPiece:
+                                                    cardGetDrinkByIdResponse,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Colors.white,
+                                          elevation: 6,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Image.network(
+                                            getJsonField(
+                                                cardGetDrinkByIdResponse,
+                                                r'''$.drinks[:1].strDrinkThumb'''),
+                                            width: 100,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                        child: Image.network(
-                                          getJsonField(
-                                              cardGetRandomCocktailResponse,
-                                              r'''$.drinks[:1].strDrinkThumb'''),
-                                          width: 100,
-                                          height: 100,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
+                                  ),
                                 ),
-                                FutureBuilder<dynamic>(
-                                  future: getRandomCocktailCall(),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: CircularProgressIndicator(
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    final cardGetRandomCocktailResponse =
-                                        snapshot.data;
-                                    return InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                ArtPiecePageWidget(
-                                              artPiece:
-                                                  cardGetRandomCocktailResponse,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 5),
+                                  child: FutureBuilder<dynamic>(
+                                    future: getDrinkByIdCall(
+                                      i: '11007',
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                             ),
                                           ),
                                         );
-                                      },
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: Colors.white,
-                                        elevation: 6,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
+                                      }
+                                      final cardGetDrinkByIdResponse =
+                                          snapshot.data;
+                                      return InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CocktailPageWidget(
+                                                artPiece:
+                                                    cardGetDrinkByIdResponse,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Colors.white,
+                                          elevation: 6,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Image.network(
+                                            getJsonField(
+                                                cardGetDrinkByIdResponse,
+                                                r'''$.drinks[:1].strDrinkThumb'''),
+                                            width: 100,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                        child: Image.network(
-                                          getJsonField(
-                                              cardGetRandomCocktailResponse,
-                                              r'''$.drinks[:1].strDrinkThumb'''),
-                                          width: 100,
-                                          height: 100,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
+                                  ),
                                 ),
-                                FutureBuilder<dynamic>(
-                                  future: getRandomCocktailCall(),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: CircularProgressIndicator(
-                                            color:
-                                                FlutterFlowTheme.primaryColor,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    final cardGetRandomCocktailResponse =
-                                        snapshot.data;
-                                    return InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                ArtPiecePageWidget(
-                                              artPiece:
-                                                  cardGetRandomCocktailResponse,
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 5),
+                                  child: FutureBuilder<dynamic>(
+                                    future: getDrinkByIdCall(
+                                      i: '11008',
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50,
+                                            height: 50,
+                                            child: CircularProgressIndicator(
+                                              color:
+                                                  FlutterFlowTheme.primaryColor,
                                             ),
                                           ),
                                         );
-                                      },
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: Colors.white,
-                                        elevation: 6,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
+                                      }
+                                      final cardGetDrinkByIdResponse =
+                                          snapshot.data;
+                                      return InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CocktailPageWidget(
+                                                artPiece:
+                                                    cardGetDrinkByIdResponse,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Colors.white,
+                                          elevation: 6,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                          child: Image.network(
+                                            getJsonField(
+                                                cardGetDrinkByIdResponse,
+                                                r'''$.drinks[:1].strDrinkThumb'''),
+                                            width: 100,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                        child: Image.network(
-                                          getJsonField(
-                                              cardGetRandomCocktailResponse,
-                                              r'''$.drinks[:1].strDrinkThumb'''),
-                                          width: 100,
-                                          height: 100,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    );
-                                  },
+                                      );
+                                    },
+                                  ),
                                 )
                               ],
                             ),
