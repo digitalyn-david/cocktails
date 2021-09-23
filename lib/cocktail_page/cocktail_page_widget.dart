@@ -165,20 +165,58 @@ class _CocktailPageWidgetState extends State<CocktailPageWidget> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 2, 0, 0),
-                                        child: Text(
-                                          getJsonField(widget.artPiece,
-                                                  r'''$.drinks[:1].strIngredient1''')
-                                              .toString(),
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Roboto',
-                                            color: Color(0xFF6A7079),
-                                            fontSize: 16,
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            '- ',
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Playfair Display',
+                                              color: Color(0xFF6A7079),
+                                            ),
                                           ),
-                                        ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 2, 0, 0),
+                                            child: Text(
+                                              getJsonField(widget.artPiece,
+                                                      r'''$.drinks[:1].strMeasure1''')
+                                                  .toString(),
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Roboto',
+                                                color: Color(0xFF6A7079),
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            ' - ',
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Playfair Display',
+                                              color: Color(0xFF6A7079),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 2, 0, 0),
+                                            child: Text(
+                                              getJsonField(widget.artPiece,
+                                                      r'''$.drinks[:1].strIngredient1''')
+                                                  .toString(),
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Roboto',
+                                                color: Color(0xFF6A7079),
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                          )
+                                        ],
                                       )
                                     ],
                                   ),
