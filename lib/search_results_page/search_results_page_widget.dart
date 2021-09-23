@@ -328,7 +328,8 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           children: [
-                                                            Padding(
+                                                              if(getJsonField(searchResultsItem, r'''$.strIBA''').toString() != 'null')
+                                                                Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(

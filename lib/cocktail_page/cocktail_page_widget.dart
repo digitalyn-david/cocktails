@@ -104,6 +104,24 @@ class _CocktailPageWidgetState extends State<CocktailPageWidget> {
                                       children: [
                                         Padding(
                                           padding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 2, 0, 0),
+                                          child: Text(
+                                            getJsonField(widget.artPiece,
+                                                r'''$.drinks[:1].strAlcoholic''')
+                                                .toString(),
+                                            textAlign: TextAlign.end,
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Roboto',
+                                              color: Color(0xFFB3B4B8),
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                        ),
+                                        if(getJsonField(widget.artPiece, r'''$.drinks[:1].strIBA''').toString() != 'null')
+                                        Padding(
+                                          padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 6, 0),
                                           child: Text(
@@ -116,23 +134,6 @@ class _CocktailPageWidgetState extends State<CocktailPageWidget> {
                                               color: Color(0xFFB3B4B8),
                                               fontSize: 15,
                                               fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 2, 0, 0),
-                                          child: Text(
-                                            getJsonField(widget.artPiece,
-                                                    r'''$.drinks[:1].strAlcoholic''')
-                                                .toString(),
-                                            textAlign: TextAlign.end,
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Roboto',
-                                              color: Color(0xFFB3B4B8),
-                                              fontSize: 16,
                                             ),
                                           ),
                                         )
@@ -156,61 +157,568 @@ class _CocktailPageWidgetState extends State<CocktailPageWidget> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'Ingredients',
-                                        style:
-                                            FlutterFlowTheme.bodyText2.override(
-                                          fontFamily: 'Open Sans',
-                                          color: Color(0xFF1E2429),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold,
+                                      // Text(
+                                      //   'Ingredients',
+                                      //   style:
+                                      //       FlutterFlowTheme.bodyText2.override(
+                                      //     fontFamily: 'Open Sans',
+                                      //     color: Color(0xFF1E2429),
+                                      //     fontSize: 12,
+                                      //     fontWeight: FontWeight.bold,
+                                      //   ),
+                                      // ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure1''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure1''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient1''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
                                         ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 2, 0, 0),
-                                            child: Text(
-                                              getJsonField(widget.artPiece,
-                                                      r'''$.drinks[:1].strMeasure1''')
-                                                  .toString(),
-                                              style: FlutterFlowTheme.bodyText1
-                                                  .override(
-                                                fontFamily: 'Roboto',
-                                                color: Color(0xFF6A7079),
-                                                fontSize: 16,
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure2''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure2''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Text(
-                                            ' - ',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Playfair Display',
-                                              color: Color(0xFF6A7079),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 2, 0, 0),
-                                            child: Text(
-                                              getJsonField(widget.artPiece,
-                                                      r'''$.drinks[:1].strIngredient1''')
-                                                  .toString(),
+                                            Text(
+                                              ' - ',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
-                                                fontFamily: 'Roboto',
+                                                fontFamily: 'Playfair Display',
                                                 color: Color(0xFF6A7079),
-                                                fontSize: 16,
                                               ),
                                             ),
-                                          )
-                                        ],
-                                      )
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient2''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure3''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure3''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient3''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure4''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure4''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient4''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure5''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure5''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient5''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure6''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure6''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient6''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure7''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure7''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient7''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure8''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure8''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient8''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure9''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure9''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient9''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure10''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure10''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient10''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure11''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure11''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient11''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      if(getJsonField(widget.artPiece, r'''$.drinks[:1].strMeasure12''').toString() != "null")
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strMeasure12''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              ' - ',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Playfair Display',
+                                                color: Color(0xFF6A7079),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 2, 0, 0),
+                                              child: Text(
+                                                getJsonField(widget.artPiece,
+                                                    r'''$.drinks[:1].strIngredient12''')
+                                                    .toString(),
+                                                style: FlutterFlowTheme.bodyText1
+                                                    .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: Color(0xFF6A7079),
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                     ],
                                   ),
                                   Padding(
@@ -226,16 +734,25 @@ class _CocktailPageWidgetState extends State<CocktailPageWidget> {
                                           thickness: 0.5,
                                           color: FlutterFlowTheme.tertiaryColor,
                                         ),
-                                        Text(
-                                          'Instructions',
-                                          style: FlutterFlowTheme.bodyText2
-                                              .override(
-                                            fontFamily: 'Open Sans',
-                                            color: Color(0xFF1E2429),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                        // Text(
+                                        //   'Instructions',
+                                        //   style: FlutterFlowTheme.bodyText2
+                                        //       .override(
+                                        //     fontFamily: 'Open Sans',
+                                        //     color: Color(0xFF1E2429),
+                                        //     fontSize: 12,
+                                        // Text(
+                                        //   'Instructions',
+                                        //   style: FlutterFlowTheme.bodyText2
+                                        //       .override(
+                                        //     fontFamily: 'Open Sans',
+                                        //     color: Color(0xFF1E2429),
+                                        //     fontSize: 12,
+                                        //     fontWeight: FontWeight.bold,
+                                        //   ),
+                                        // ),//     fontWeight: FontWeight.bold,
+                                        //   ),
+                                        // ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
