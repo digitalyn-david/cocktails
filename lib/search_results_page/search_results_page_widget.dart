@@ -2,6 +2,7 @@ import '../backend/api_requests/api_calls.dart';
 import '../cocktail_page/cocktail_page_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../home_page/home_page_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -71,7 +72,15 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                         children: [
                           IconButton(
                             onPressed: () async {
-                              Navigator.pop(context);
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.leftToRight,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: HomePageWidget(),
+                                ),
+                              );
                             },
                             icon: Icon(
                               Icons.arrow_back,
@@ -224,14 +233,7 @@ class _SearchResultsPageWidgetState extends State<SearchResultsPageWidget> {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
                                 return Center(
-                                  child: SizedBox(
-                                    width: 50,
-                                    height: 50,
-                                    child: SpinKitFadingFour(
-                                      color: FlutterFlowTheme.tertiaryColor,
-                                      size: 50,
-                                    ),
-                                  ),
+
                                 );
                               }
                               final containerGetDrinkByIdResponse =
